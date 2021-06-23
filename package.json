@@ -6,7 +6,7 @@
   "author": "Wallace Machado <64056460+WallaceMachado@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules --respawn src/server.ts"
+    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts"
   },
   "dependencies": {
     "express": "^4.17.1"
