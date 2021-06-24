@@ -4,7 +4,11 @@ import express from 'express';
 
 import { router } from "./routes";
 
-import "../typeorm";
+import createConnection from "../typeorm";
+
+import "../../../../src/shared/container";
+
+createConnection();
 const app = express();
 
 
