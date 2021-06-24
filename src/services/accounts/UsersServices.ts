@@ -4,7 +4,7 @@ import { IUsersRepository } from "../../repositories/accounts/IUsersRepository";
 
 
 @injectable()
-class UserServices {
+class UsersServices {
 
   constructor(
     
@@ -25,5 +25,7 @@ class UserServices {
   }
 
 }
+
+export { UsersServices}
 
 
