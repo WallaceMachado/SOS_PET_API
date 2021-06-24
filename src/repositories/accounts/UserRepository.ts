@@ -16,6 +16,7 @@ class UsersRepository implements IUsersRepository {
 
   async create({
     name,
+    username,
     email,
     password,
     type_user,
@@ -25,6 +26,7 @@ class UsersRepository implements IUsersRepository {
 
     const user = this.repository.create({
       name,
+      username,
       password,
       email,
       type_user,
