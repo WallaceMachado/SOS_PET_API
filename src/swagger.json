@@ -1,0 +1,70 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Sos Dog - Documention",
+    "description": "1.0.0",
+    "contact": {
+      "email": "sos_dog@gmail.com"
+    }
+  },
+  "paths": {
+    "/users": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Create a user",
+        "description": "Create a new user",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "type_user": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "name": "testName",
+                  "email": "testEmail@test.com",
+                  "password": "1234",
+                  "username": "testeUsername",
+                  "type_user": "teste"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Username already exists"
+          },
+          "500": {
+            "description": "Email already exists"
+          }
+        }
+      }
+    }
+  }
+}

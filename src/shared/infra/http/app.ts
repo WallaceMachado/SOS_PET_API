@@ -2,12 +2,14 @@ import "reflect-metadata";
 import express, { NextFunction, Request, Response } from 'express';
 import "express-async-errors"
 
+import swaggerUI from 'swagger-ui-express';
 import { router } from "./routes";
 
 import createConnection from "../typeorm";
 
 import "../../../../src/shared/container";
 import { AppError } from "../../../shared/errors/AppError";
+import swaggerFile from '../../../swagger.json';
 
 createConnection();
 const app = express();
@@ -16,8 +18,10 @@ const app = express();
 app.use(express.json());
 
 
-
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerFile));
 app.use(router);
+
+
 
 app.use((err: Error, request: Request, response: Response, next: NextFunction) => {
   if (err instanceof AppError) {
