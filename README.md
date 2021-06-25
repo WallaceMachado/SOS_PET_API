@@ -11,7 +11,7 @@ Node backend API with typescript and express, serving the front-end of the socia
 Done so far: Allows users to register
 
 
-Tabela de conteúdos
+Table of Contents
 =================
 * <p><a href="#prerequisites">Prerequisites</a> </p>  
 * <p><a href="#setting-database">Setting Database</a></p>  
