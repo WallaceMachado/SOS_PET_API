@@ -53,6 +53,8 @@ or
 $ yarn
 
 
-
 # Server is running:3333 - acesse <http://localhost:3333>
 ```
+
+
+make changes to the database connection data in the ormconfig.json file:
