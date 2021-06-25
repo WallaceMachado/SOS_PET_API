@@ -40,7 +40,7 @@ Create database on postgres:
 
 ```bash
 # Clone este repositório
-$ git clone <https://github.com/WallaceMachado/SOS_PET_API.git>
+$ git clone https://github.com/WallaceMachado/SOS_PET_API.git
 
 # Acesse a pasta do projeto no terminal/cmd
 $ cd SOS_PET_API
