@@ -57,4 +57,13 @@ $ yarn
 ```
 
 
-make changes to the database connection data in the ormconfig.json file:
+Make changes to the database connection data in the ormconfig.json file:
+
+```bash
+{
+  ...
+  "username": "postgres",
+  "password": "",
+  ...
+}
+```
