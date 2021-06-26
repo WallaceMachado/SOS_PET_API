@@ -15,11 +15,12 @@ Node backend API with typescript and express, serving the front-end of the socia
 
 
 ## Table of Contents
-=================
+
 * <p><a href="#prerequisites">Prerequisites</a> </p>  
 * <p><a href="#setting-database">Setting Database</a></p>  
 * <p><a href="#starting-project">Starting Project</a></p>
 * <p><a href="#routes">Routes</a></p>
+* <p><a href="#running-the-tests">Running the tests</a></p>
 * <p><a href="#autor">Autor</a></p>
 
 
@@ -44,13 +45,13 @@ Create database on postgres:
 ## Starting Project
 
 ```bash
-# Clone este repositório
+# Clone this repository
 $ git clone https://github.com/WallaceMachado/SOS_PET_API.git
 
-# Acesse a pasta do projeto no terminal/cmd
+# Access the project folder in the terminal/cmd
 $ cd SOS_PET_API
 
-# Instale as dependências
+# Install dependencies
 $ npm install
 
 or
