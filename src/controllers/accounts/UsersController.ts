@@ -5,12 +5,12 @@ import { UsersServices } from "../../services/accounts/UsersServices";
 
 class UsersController {
 
-  async handle(request: Request, response: Response): Promise<Response> {
+  async createUser(request: Request, response: Response): Promise<Response> {
     const { name, email, password, type_user, username } = request.body;
 
     const usersServices = container.resolve(UsersServices);
 
-    await usersServices.execute({
+    await usersServices.createUser({
       name,
       email,
       password,
@@ -19,6 +19,16 @@ class UsersController {
     });
 
     return response.status(201).send({ message: "user created!" });
+  }
+
+  async getAllUsers(request: Request, response: Response): Promise<Response> {
+
+
+    const usersServices = container.resolve(UsersServices);
+
+    const allUsers = await usersServices.getAllUsers();
+    
+    return response.json(allUsers);
   }
 }
 

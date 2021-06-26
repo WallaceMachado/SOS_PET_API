@@ -13,7 +13,7 @@ class UsersRepository implements IUsersRepository {
   constructor() {
     this.repository = getRepository(User);
   }
-
+ 
   async create({
     name,
     username,
@@ -45,6 +45,16 @@ class UsersRepository implements IUsersRepository {
   async findByUsername(username: string): Promise<User> {
     const user = await this.repository.findOne({ username });
     return user;
+  }
+
+  async findById(id: string): Promise<User> {
+    const user = await this.repository.findOne(id);
+    return user;
+  }
+
+  async getAllUsers(): Promise<User[]> {
+    const allUsers = await this.repository.query(`SELECT * FROM users ORDER BY name ASC`);
+    return allUsers;
   }
 }
 
