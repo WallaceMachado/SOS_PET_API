@@ -8,14 +8,19 @@
 Node backend API with typescript and express, serving the front-end of the social network sos_pet 
 (front repository: https://github.com/erikaperciliano/SOS-PET-new-version-).
 
-Done so far: Allows users to register
+
+### Features
+
+- [x] Allows users to register
 
 
-Table of Contents
+## Table of Contents
 =================
 * <p><a href="#prerequisites">Prerequisites</a> </p>  
 * <p><a href="#setting-database">Setting Database</a></p>  
 * <p><a href="#starting-project">Starting Project</a></p>
+* <p><a href="#routes">Routes</a></p>
+* <p><a href="#autor">Autor</a></p>
 
 
 
@@ -52,18 +57,31 @@ or
 
 $ yarn
 
+# Make changes to the database connection data in the ormconfig.json file
+$ yarn typeorm migration:run
 
 # Server is running:3333 - acesse <http://localhost:3333>
 ```
 
+## Routes
 
-Make changes to the database connection data in the ormconfig.json file:
+| Route  |  HTTP Method  | Params  |  Description  |  Auth Method  |
+| :---: | :---: | :---: | :---: | :---: |
+|  /users |  POST |  Body with user's name, email, password, username and user_type  |  Create a new User |  ❌ |
+
+## Running the tests
+
+[Jest](https://jestjs.io/) was the choice to test the app, to run:
 
 ```bash
-{
-  ...
-  "username": "postgres",
-  "password": "",
-  ...
-}
+
+$ yarn test
+
 ```
+
+## Autor
+
+
+Feito com ❤️ por [Wallace Machado](https://github.com/WallaceMachado) 🚀🏽 Entre em contato!
+
+[<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />](https://www.linkedin.com/in/wallace-machado-b2054246/) 
