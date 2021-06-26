@@ -17,13 +17,16 @@ export default {
   clearMocks: true,
 
   // Indicates whether the coverage information should be collected while executing the test
-  // collectCoverage: false,
+  collectCoverage: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   // collectCoverageFrom: undefined,
-
+  collectCoverageFrom: [
+    '<rootDir>/src/controllers/**/*.ts',
+    '<rootDir>/src/services/**/*.ts'
+  ],
   // The directory where Jest should output its coverage files
-  // coverageDirectory: undefined,
+  coverageDirectory: 'tests/coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
@@ -40,6 +43,10 @@ export default {
   //   "lcov",
   //   "clover"
   // ],
+  coverageReporters: [
+    "text-summary",
+    "lcov",
+  ],
 
   // An object that configures minimum threshold enforcement for coverage results
   // coverageThreshold: undefined,
@@ -135,7 +142,7 @@ export default {
 
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
   // snapshotSerializers: [],
-
+  testEnvironment: "node",
   // The test environment that will be used for testing
   // testEnvironment: "jest-environment-node",
 

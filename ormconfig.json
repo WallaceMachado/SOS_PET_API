@@ -7,7 +7,7 @@
   "port": 5432,
   "database": "sos_pet",
   "entities": [
-    "./src/modules/**/entities/*.ts"
+    "./src/models/**/entities/*.ts"
   ],
   "migrations": [
     "./src/shared/infra/typeorm/migrations/*.ts"
