@@ -14,6 +14,7 @@ Node backend API with typescript and express, serving the front-end of the socia
 - [x] Allows users to register
 
 
+
 ## Table of Contents
 
 * <p><a href="#prerequisites">Prerequisites</a> </p>  
@@ -21,7 +22,9 @@ Node backend API with typescript and express, serving the front-end of the socia
 * <p><a href="#starting-project">Starting Project</a></p>
 * <p><a href="#routes">Routes</a></p>
 * <p><a href="#running-the-tests">Running the tests</a></p>
+* <p><a href="#coverage-report">Coverage report</a></p>
 * <p><a href="#autor">Autor</a></p>
+
 
 
 
@@ -35,12 +38,15 @@ Before starting, you will need to have the following tools installed on your mac
 Besides, it's good to have an editor to work with the code like: [VSCode](https://code.visualstudio.com/)
 
 
+
 ## Setting Database
 
 Create database on postgres:
 
 * sos_pet
 * sos_pet_test
+
+
 
 ## Starting Project
 
@@ -64,11 +70,15 @@ $ yarn typeorm migration:run
 # Server is running:3333 - acesse <http://localhost:3333>
 ```
 
+
+
 ## Routes
 
 | Route  |  HTTP Method  | Params  |  Description  |  Auth Method  |
 | :---: | :---: | :---: | :---: | :---: |
 |  /users |  POST |  Body with user's name, email, password, username and user_type  |  Create a new User |  ❌ |
+
+
 
 ## Running the tests
 
@@ -79,6 +89,14 @@ $ yarn typeorm migration:run
 $ yarn test
 
 ```
+
+
+
+## Coverage report
+
+You can see the coverage report inside ``` tests/coverage ```. They are automatically created after the tests run.
+
+
 
 ## Autor
 
