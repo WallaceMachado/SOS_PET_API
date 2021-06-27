@@ -4,7 +4,12 @@ import { ICreateUserDTO } from "../../repositories/accounts/dtos/ICreateUserDTO"
 import { IUsersRepository } from "../../repositories/accounts/IUsersRepository";
 import { AppError } from "../../shared/errors/AppError";
 import { User } from "../../models/accounts/infra/typeorm/entities/User";
+import { deleteFile } from "../../utils/file";
 
+interface IRequestAvatar {
+  user_id: string;
+  avatar_File: string;
+}
 
 @injectable()
 class UsersServices {
@@ -47,6 +52,19 @@ class UsersServices {
     return allUsers;
   }
 
+
+
+  async updateUserAvatar({ user_id, avatar_File }: IRequestAvatar): Promise<void> {
+    const user = await this.usersRepository.findById(user_id);
+
+    if (user.avatar) {
+      await deleteFile(`tmp/avatar/${user.avatar}`);
+    }
+
+    user.avatar = avatar_File;
+
+    await this.usersRepository.create(user);
+  }
 }
 
 export { UsersServices }

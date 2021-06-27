@@ -1,5 +1,6 @@
 import "reflect-metadata";
 import express, { NextFunction, Request, Response } from 'express';
+
 import "express-async-errors"
 
 import swaggerUI from 'swagger-ui-express';
@@ -11,6 +12,7 @@ import "../../../../src/shared/container";
 import { AppError } from "../../../shared/errors/AppError";
 import swaggerFile from '../../../swagger.json';
 
+
 createConnection();
 const app = express();
 
@@ -19,6 +21,7 @@ app.use(express.json());
 
 
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerFile));
+
 app.use(router);
 
 
