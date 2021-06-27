@@ -5,6 +5,7 @@ import { IUsersRepository } from "../../repositories/accounts/IUsersRepository";
 import { AppError } from "../../shared/errors/AppError";
 import { User } from "../../models/accounts/infra/typeorm/entities/User";
 import { deleteFile } from "../../utils/file";
+import { IStorageProvider } from "../../shared/container/providers/storageProvider/IStorageProvider";
 
 interface IRequestAvatar {
   user_id: string;
@@ -16,8 +17,12 @@ class UsersServices {
 
   constructor(
     @inject("UsersRepository")
-    private usersRepository: IUsersRepository
+    private usersRepository: IUsersRepository,
+
+    @inject("StorageProvider")
+    private storageProvider: IStorageProvider,
   ) { }
+  
 
   async createUser({ name, email, password, type_user, username }: ICreateUserDTO): Promise<void> {
 
@@ -58,7 +63,7 @@ class UsersServices {
     const user = await this.usersRepository.findById(user_id);
 
     if (user.avatar) {
-      await deleteFile(`tmp/avatar/${user.avatar}`);
+      await this.storageProvider.delete(user.avatar,"avatar");
     }
 
     user.avatar = avatar_File;

@@ -1,3 +1,4 @@
+import { Expose } from "class-transformer";
 import { Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from "typeorm";
 import { v4 as uuidv4 } from 'uuid';
 
@@ -35,11 +36,23 @@ class User {
   @UpdateDateColumn()
   updated_at: Date;
 
-  constructor() {
-    if (!this.id) {
-      this.id = uuidv4();
+  @Expose({ name: "avatar_url" })
+  avatar_url(): string {
+    if (this.avatar) {
+
+      return `http://localhost:3333/avatar/${this.avatar}`
+
+    } else {
+      return null
     }
+
   }
+
+constructor() {
+  if (!this.id) {
+    this.id = uuidv4();
+  }
+}
 
 }
 
