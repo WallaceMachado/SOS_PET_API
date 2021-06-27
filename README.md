@@ -12,7 +12,8 @@ Node backend API with typescript and express, serving the front-end of the socia
 ### Features
 
 - [x] Allows users to register
-
+- [x] Token route authentication
+- [x] List all users
 
 
 ## Table of Contents
@@ -77,8 +78,21 @@ $ yarn typeorm migration:run
 | Route  |  HTTP Method  | Params  |  Description  |  Auth Method  |
 | :---: | :---: | :---: | :---: | :---: |
 |  /users |  POST |  Body with user's name, email, password, username and user_type  |  Create a new User |  ❌ |
+|  /users |  GET |  -  |  Retrieve a list of categories. |  Bearer |
+|  /sessions |  POST |  Body with user's email and password.  |  Authenticates user, return a Bearer Token and user's name, email |  ❌ |
+
+Routes with Bearer as auth method expect an Authorization header. See [Bearer Token](#bearer-token) section for more information.
 
 
+## Bearer Token
+A few routes expect a Bearer Token in an Authorization header.
+
+> You can see these routes in the routes section.
+
+```
+GET http://localhost:3333/v1/rentals Authorization: Bearer <token>
+```
+>To achieve this token you just need authenticate through the /sessions route and it will return the token key with a valid Bearer Token
 
 ## Running the tests
 
