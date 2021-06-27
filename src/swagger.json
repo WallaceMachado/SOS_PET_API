@@ -15,11 +15,6 @@
         ],
         "summary": "Create a user",
         "description": "Create a new user",
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -109,47 +104,45 @@
           }
         }
       }
-    
-    
-  },
-  "/sessions": {
-    "post": {
-      "tags": [
-        "Users"
-      ],
-      "summary": "Authenticate user",
-      "description": "Authenticate user and generate an access token",
-      "requestBody": {
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "email": {
-                  "type": "string"
+    },
+    "/sessions": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Authenticate user",
+        "description": "Authenticate user and generate an access token",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
                 },
-                "password": {
-                  "type": "string"
+                "example": {
+                  "email": "admin@rentx.com",
+                  "password": "admin"
                 }
-              },
-              "example": {
-                "email": "admin@rentx.com",
-                "password": "admin"
               }
             }
           }
-        }
-      },
-      "responses": {
-        "200": {
-          "description": "Authenticated"
         },
-        "400": {
-          "description": "Email or password incorrect"
+        "responses": {
+          "200": {
+            "description": "Authenticated"
+          },
+          "400": {
+            "description": "Email or password incorrect"
+          }
         }
       }
     }
-  }
   },
   "components": {
     "securitySchemes": {
