@@ -31,6 +31,10 @@ export async function ensureAuthenticated(
       throw new Error("User does not exists");
     }
 
+    request.user = {
+      id: user_id,
+    }
+
     next();
 
   } catch {
