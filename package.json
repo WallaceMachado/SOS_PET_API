@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli",
-    "test": "SET NODE_ENV=test&&jest --runInBand --detectOpenHandles"
+    "test": "SET NODE_ENV=test&&jest --runInBand --detectOpenHandles",
+    "seed:admin": "ts-node-dev src/shared/infra/typeorm/seed/admin.ts"
   },
   "dependencies": {
     "@types/jest": "^26.0.23",
