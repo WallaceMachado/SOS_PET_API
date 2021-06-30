@@ -66,6 +66,7 @@ class UsersServices {
       await this.storageProvider.delete(user.avatar,"avatar");
     }
 
+    await this.storageProvider.save(avatar_File, 'avatar');
     user.avatar = avatar_File;
 
     await this.usersRepository.create(user);

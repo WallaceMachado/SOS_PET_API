@@ -41,7 +41,7 @@ class UsersController {
 
     await userServices.updateUserAvatar({ user_id: id, avatar_File });
 
-    return response.status(204).send();
+    return response.status(204).send({ message: "Success" });
   }
 }
 
