@@ -51,6 +51,8 @@ class Animal {
   @Column()
   age: number;
   
+  @Column()
+  avatar: string;
 
   @CreateDateColumn()
   created_at: Date;

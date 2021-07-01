@@ -17,6 +17,7 @@ interface ICreateAnimalsDTO {
   state: string;
   city: string;
   age?: number;
+  avatar?: string;
 }
 
 export { ICreateAnimalsDTO }
