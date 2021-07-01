@@ -77,11 +77,12 @@ $ yarn typeorm migration:run
 
 | Route  |  HTTP Method  | Params  |  Description  |  Auth Method  |
 | :---: | :---: | :---: | :---: | :---: |
-|  /users |  POST |  Body with user's name, email, password, username and user_type  |  Create a new User |  ❌ |
+|  /users |  POST |  Body with user's name, email, password, username and user_type  |  Created user |  ❌ |
 |  /users |  GET |  -  |  Retrieve a list of users. |  Bearer |
 |  /users/profile |  GET |  -  |  Return user's profile. |  Bearer |
 |  /users/avatar |  PATCH |  Multipart payload with a atavar field with a image (See insomnia file for good example).  |  Update user avatar. |  Bearer |
 |  /sessions |  POST |  Body with user's email and password.  |  Authenticates user, return a Bearer Token and user's name, email |  ❌ |
+|  /animals |  POST |  Body with user's type_animal, name, animal_gender, breed, description, state, city, age  |  Created Animal |  Bearer |
 
 Routes with Bearer as auth method expect an Authorization header. See [Bearer Token](#bearer-token) section for more information.
 

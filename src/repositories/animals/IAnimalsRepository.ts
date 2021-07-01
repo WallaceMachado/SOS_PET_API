@@ -2,9 +2,9 @@ import { ICreateAnimalsDTO } from "./dtos/ICreateAnimalsDTO";
 
 
 
-interface IAnimalsRepositories {
+interface IAnimalsRepository {
   create(date: ICreateAnimalsDTO): Promise<void>;
- 
+
 }
 
-export {IAnimalsRepositories}
+export { IAnimalsRepository }

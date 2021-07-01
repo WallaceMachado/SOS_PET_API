@@ -1,22 +1,22 @@
 import { inject, injectable } from "tsyringe";
 
 import { ICreateAnimalsDTO } from "../../repositories/animals/dtos/ICreateAnimalsDTO";
-import { IAnimalsRepositories } from "../../repositories/animals/IAnimalsRepositories";
+import { IAnimalsRepository } from "../../repositories/animals/IAnimalsRepository";
 
 
 @injectable()
 class AnimalsServices {
 
   constructor(
-    @inject("AnimalsRepositories")
-    private animalsRepository: IAnimalsRepositories,
+    @inject("AnimalsRepository")
+    private animalsRepository: IAnimalsRepository,
 
 
 
   ) { }
 
 
-  async createUser({
+  async createAnimal({
     protector_id,
     type_animal,
     name,

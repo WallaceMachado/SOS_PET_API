@@ -18,7 +18,7 @@ class UsersController {
       username
     });
 
-    return response.status(201).send({ message: "user created!" });
+    return response.status(201).send({ message: "Created user!" });
   }
 
   async getAllUsers(request: Request, response: Response): Promise<Response> {
@@ -31,7 +31,7 @@ class UsersController {
   }
 
   async updateUserAvatar(request: Request, response: Response): Promise<Response> {
-    
+
     const { id } = request.user;
 
 

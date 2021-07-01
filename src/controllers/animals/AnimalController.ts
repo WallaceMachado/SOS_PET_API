@@ -25,7 +25,7 @@ class AnimalController {
 
     const animalsServices = container.resolve(AnimalsServices);
 
-    await animalsServices.createUser({
+    await animalsServices.createAnimal({
       protector_id,
     type_animal,
     name,

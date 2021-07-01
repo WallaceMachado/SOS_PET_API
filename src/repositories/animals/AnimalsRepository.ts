@@ -1,11 +1,11 @@
 import { getRepository, Repository } from "typeorm";
 import { Animal } from "../../models/animals/infra/typeORM/entities/Animal";
 import { ICreateAnimalsDTO } from "./dtos/ICreateAnimalsDTO";
-import { IAnimalsRepositories } from "./IAnimalsRepositories";
+import { IAnimalsRepository } from "./IAnimalsRepository";
 
 
 
-class AnimalsRepositories implements IAnimalsRepositories {
+class AnimalsRepository implements IAnimalsRepository {
 
   private repository: Repository<Animal>;
 
@@ -14,17 +14,17 @@ class AnimalsRepositories implements IAnimalsRepositories {
   }
 
   async create({
-  id,
-  protector_id,
-  adopter_id,
-  type_animal,
-  name,
-  animal_gender,
-  breed,
-  description,
-  state,
-  city,
-  age,
+    id,
+    protector_id,
+    adopter_id,
+    type_animal,
+    name,
+    animal_gender,
+    breed,
+    description,
+    state,
+    city,
+    age,
   }: ICreateAnimalsDTO): Promise<void> {
 
     const animal = this.repository.create({
@@ -46,5 +46,5 @@ class AnimalsRepositories implements IAnimalsRepositories {
   }
 }
 
-  export {AnimalsRepositories}
+export { AnimalsRepository }
 
