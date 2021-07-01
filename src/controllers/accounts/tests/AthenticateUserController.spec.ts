@@ -18,7 +18,7 @@ describe('Authenticate User', () => {
       .send({
         name: "userTest",
         email: "userTest@test.com",
-        password: "1234",
+        password: "123456",
         username: "usernameTest",
         type_user: "teste"
       })
@@ -39,7 +39,7 @@ describe('Authenticate User', () => {
       .post('/sessions')
       .send({
         email: "userTest@test.com",
-        password: "1234"
+        password: "123456"
       })
 
 
@@ -55,7 +55,7 @@ describe('Authenticate User', () => {
       .post('/sessions')
       .send({
         email: "incorrectEmail@test.com",
-        password: "1234"
+        password: "123456"
       })
 
 

@@ -28,7 +28,7 @@ describe('User Controller', () => {
       .send({
         name: "userTest",
         email: "userTest@test.com",
-        password: "1234",
+        password: "123456",
         username: "usernameTest",
         type_user: "teste"
       })
@@ -45,11 +45,11 @@ describe('User Controller', () => {
       .send({
         name: "userTest",
         email: "userTest@test.com",
-        password: "1234",
+        password: "123456",
         username: "usernameTest",
         type_user: "teste",
       })
-    console.log(response.body.message);
+   
     expect(response.status).toBe(400);
     expect(response.body.message).toBe('Email already exists');
   });
@@ -61,7 +61,7 @@ describe('User Controller', () => {
       .send({
         name: "userTest",
         email: "userTest2@test.com",
-        password: "1234",
+        password: "123456",
         username: "usernameTest",
         type_user: "teste",
       })
@@ -73,7 +73,7 @@ describe('User Controller', () => {
   it('Should be able to get all users', async () => {
 
     const id = uuidv4();
-    const password = await hash('admin', 8);
+    const password = await hash('admin1', 8);
 
     await connection.query(`
         INSERT INTO USERS(id, name, email, password, "isAdmin", created_at, updated_at, username, type_user, avatar)
@@ -84,7 +84,7 @@ describe('User Controller', () => {
       .post('/sessions')
       .send({
         email: 'admin@test.com',
-        password: 'admin',
+        password: 'admin1',
       });
 
     const adminToken = responseToken.token;

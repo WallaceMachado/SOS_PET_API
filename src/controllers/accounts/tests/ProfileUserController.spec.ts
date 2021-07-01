@@ -15,12 +15,12 @@ describe('User Controller', () => {
     connection = await createConnection();
     await connection.runMigrations();
 
-    const response = await request(app)
+    await request(app)
       .post('/users')
       .send({
         name: "userTest",
         email: "userTest@test.com",
-        password: "1234",
+        password: "123456",
         username: "usernameTest",
         type_user: "teste"
       })
@@ -29,7 +29,7 @@ describe('User Controller', () => {
       .post('/sessions')
       .send({
         email: 'userTest@test.com',
-        password: '1234',
+        password: '123456',
       });
 
     userToken = responseToken.token;
@@ -52,7 +52,7 @@ describe('User Controller', () => {
         Authorization: `Bearer ${userToken}`,
       });
 
-    console.log(response.body);
+
     expect(response.status).toBe(200);
 
 

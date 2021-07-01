@@ -40,7 +40,7 @@
                 "example": {
                   "name": "testName",
                   "email": "testEmail@test.com",
-                  "password": "1234",
+                  "password": "123456",
                   "username": "testeUsername",
                   "type_user": "teste"
                 }
