@@ -105,6 +105,44 @@
         }
       }
     },
+    "/sessions": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Authenticate user",
+        "description": "Authenticate user and generate an access token",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "email": "admin@sospet.com",
+                  "password": "admin1"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Authenticated"
+          },
+          "400": {
+            "description": "Email or password incorrect"
+          }
+        }
+      }
+    },
     "/users/avatar": {
       "patch": {
         "tags": [
@@ -194,40 +232,66 @@
         }
       }
     },
-    "/sessions": {
+    "/animals": {
       "post": {
         "tags": [
-          "Users"
+          "Animals"
         ],
-        "summary": "Authenticate user",
-        "description": "Authenticate user and generate an access token",
+        "summary": "Create a animal",
+        "description": "Create a new animal",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
-                  "email": {
+                  "name": {
                     "type": "string"
                   },
-                  "password": {
+                  "type_animal": {
                     "type": "string"
+                  },
+                  "animal_gender": {
+                    "type": "string"
+                  },
+                  "breed": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "state": {
+                    "type": "string"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "age": {
+                    "type": "number"
                   }
                 },
                 "example": {
-                  "email": "admin@rentx.com",
-                  "password": "admin"
+                  "type_animal": "cat",
+                  "name": "nameCat",
+                  "animal_gender": "M",
+                  "breed": "viralata",
+                  "description": "animal vivendo na rua",
+                  "state": "RJ",
+                  "city": "Rio de Janiero",
+                  "age": 1
                 }
               }
             }
           }
         },
         "responses": {
-          "200": {
-            "description": "Authenticated"
-          },
-          "400": {
-            "description": "Email or password incorrect"
+          "201": {
+            "description": "Created animal"
           }
         }
       }
