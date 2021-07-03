@@ -11,8 +11,6 @@ class AnimalsServices {
     @inject("AnimalsRepository")
     private animalsRepository: IAnimalsRepository,
 
-
-
   ) { }
 
 
