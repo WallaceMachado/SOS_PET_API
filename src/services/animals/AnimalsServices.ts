@@ -39,6 +39,14 @@ class AnimalsServices {
     });
   }
 
+  async getAllAnimals(): Promise<ICreateAnimalsDTO[]> {
+
+
+   const animals = await this.animalsRepository.getAllAnimals();
+
+   return animals;
+  }
+
 }
 
 export { AnimalsServices }

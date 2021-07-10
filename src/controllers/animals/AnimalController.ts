@@ -40,6 +40,16 @@ class AnimalController {
     return response.status(201).send({ message: "animal created!" });
   }
 
+  async getAllAnimals(request: Request, response: Response): Promise<Response>{
+
+    const animalsServices = container.resolve(AnimalsServices);
+
+    const animals = await animalsServices.getAllAnimals();
+
+    return response.json(animals);
+
+  }
+
 }
 
 export { AnimalController }

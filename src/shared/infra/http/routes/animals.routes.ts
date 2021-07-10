@@ -11,5 +11,6 @@ const animalController = new AnimalController();
 
 
 animalsRoutes.post("/", ensureAuthenticated, animalController.createAnimal);
+animalsRoutes.get("/", ensureAuthenticated, animalController.getAllAnimals);
 
 export { animalsRoutes }
