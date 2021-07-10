@@ -58,6 +58,38 @@ class AnimalsServices {
     
   }
 
+  async updateAnimal({id,
+    protector_id,
+    type_animal,
+    name,
+    animal_gender,
+    breed,
+    description,
+    state,
+    city,
+    age,
+    adopter_id,
+    avatar}: ICreateAnimalsDTO): Promise<ICreateAnimalsDTO>{
+       await this.animalsRepository.create({
+        id,
+        protector_id,
+        type_animal,
+        name,
+        animal_gender,
+        breed,
+        description,
+        state,
+        city,
+        age,
+        adopter_id,
+        avatar
+      });
+
+      const animal = await this.animalsRepository.getById(id);
+
+      return animal;
+    }
+
 }
 
 

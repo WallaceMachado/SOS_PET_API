@@ -60,14 +60,50 @@ class AnimalController {
     return response.json(animal);
   }
 
-  async deleteAnimal(request: Request, response: Response): Promise<Response>{
+  async deleteAnimal(request: Request, response: Response): Promise<Response> {
     const { id } = request.params;
 
     const animalsServices = container.resolve(AnimalsServices);
 
     await animalsServices.deleteAnimal(id);
 
-    return response.send({message: 'Animal Deletado!'})
+    return response.send({ message: 'Animal Deletado!' })
+  }
+
+  async updateAnimal(request: Request, response: Response): Promise<Response> {
+    const {
+      protector_id,
+      type_animal,
+      name,
+      animal_gender,
+      breed,
+      description,
+      state,
+      city,
+      age,
+      adopter_id,
+      avatar } = request.body;
+
+    const { id } = request.params;
+
+    const animalsServices = container.resolve(AnimalsServices);
+
+    const animal = await animalsServices.updateAnimal({
+      id,
+      protector_id,
+      type_animal,
+      name,
+      animal_gender,
+      breed,
+      description,
+      state,
+      city,
+      age,
+      adopter_id,
+      avatar
+    });
+
+    return response.json(animal);
   }
 
 }
