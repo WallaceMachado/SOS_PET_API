@@ -11,6 +11,7 @@ export async function ensureAuthenticated(
   response: Response,
   next: NextFunction) {
 
+  
   const authHeader = request.headers.authorization;
 
   if (!authHeader) {
