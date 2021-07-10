@@ -12,6 +12,12 @@ class AnimalsRepository implements IAnimalsRepository {
   constructor() {
     this.repository = getRepository(Animal);
   }
+  async getById(id: string): Promise<ICreateAnimalsDTO> {
+    return await this.repository.findOne(id);
+  }
+ async deleteAnimal(id: string): Promise<void> {
+    await this.repository.delete(id);
+  }
   async getAllAnimals(): Promise<ICreateAnimalsDTO[]> {
     return await this.repository.query(`SELECT * FROM animals ORDER BY name ASC`);
   }

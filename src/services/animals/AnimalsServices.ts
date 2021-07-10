@@ -47,6 +47,19 @@ class AnimalsServices {
    return animals;
   }
 
+  async getById(id: string): Promise<ICreateAnimalsDTO>{
+    const animal = this.animalsRepository.getById(id);
+
+    return animal;
+  }
+
+  async deleteAnimal(id: string): Promise<void>{
+    await this.animalsRepository.deleteAnimal(id);
+    
+  }
+
 }
+
+
 
 export { AnimalsServices }

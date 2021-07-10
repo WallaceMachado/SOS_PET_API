@@ -9,7 +9,7 @@ class AnimalController {
 
   async createAnimal(request: Request, response: Response): Promise<Response> {
 
-    const { 
+    const {
       type_animal,
       name,
       animal_gender,
@@ -27,20 +27,20 @@ class AnimalController {
 
     await animalsServices.createAnimal({
       protector_id,
-    type_animal,
-    name,
-    animal_gender,
-    breed,
-    description,
-    state,
-    city,
-    age
+      type_animal,
+      name,
+      animal_gender,
+      breed,
+      description,
+      state,
+      city,
+      age
     });
 
     return response.status(201).send({ message: "animal created!" });
   }
 
-  async getAllAnimals(request: Request, response: Response): Promise<Response>{
+  async getAllAnimals(request: Request, response: Response): Promise<Response> {
 
     const animalsServices = container.resolve(AnimalsServices);
 
@@ -48,6 +48,26 @@ class AnimalController {
 
     return response.json(animals);
 
+  }
+
+  async getById(request: Request, response: Response): Promise<Response> {
+    const { id } = request.params;
+
+    const animalsServices = container.resolve(AnimalsServices);
+
+    const animal = await animalsServices.getById(id);
+
+    return response.json(animal);
+  }
+
+  async deleteAnimal(request: Request, response: Response): Promise<Response>{
+    const { id } = request.params;
+
+    const animalsServices = container.resolve(AnimalsServices);
+
+    await animalsServices.deleteAnimal(id);
+
+    return response.send({message: 'Animal Deletado!'})
   }
 
 }
