@@ -39,10 +39,19 @@ class AnimalsServices {
     });
   }
 
-  async getAllAnimals(): Promise<ICreateAnimalsDTO[]> {
+  async getAllAnimals(page: string,limit: string): Promise<ICreateAnimalsDTO[]> {
 
+    let pageInt = parseInt(page);
+    let limitInt = parseInt(limit);
+    let animals: ICreateAnimalsDTO[];
+    
+    if (pageInt){
 
-   const animals = await this.animalsRepository.getAllAnimals();
+     animals = await this.animalsRepository.getAnimalsPage(pageInt, limitInt);
+      
+    } else {
+      animals = await this.animalsRepository.getAllAnimals();
+    }
 
    return animals;
   }

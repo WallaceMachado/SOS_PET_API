@@ -42,9 +42,11 @@ class AnimalController {
 
   async getAllAnimals(request: Request, response: Response): Promise<Response> {
 
+    const{page=0, limit=0} = request.query
+
     const animalsServices = container.resolve(AnimalsServices);
 
-    const animals = await animalsServices.getAllAnimals();
+    const animals = await animalsServices.getAllAnimals( page as string, limit as string);
 
     return response.json(animals);
 
@@ -52,6 +54,8 @@ class AnimalController {
 
   async getById(request: Request, response: Response): Promise<Response> {
     const { id } = request.params;
+
+    
 
     const animalsServices = container.resolve(AnimalsServices);
 

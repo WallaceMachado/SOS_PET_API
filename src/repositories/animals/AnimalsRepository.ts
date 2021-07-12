@@ -19,7 +19,13 @@ class AnimalsRepository implements IAnimalsRepository {
     await this.repository.delete(id);
   }
   async getAllAnimals(): Promise<ICreateAnimalsDTO[]> {
-    return await this.repository.query(`SELECT * FROM animals ORDER BY name ASC`);
+   // return await this.repository.query(`SELECT * FROM animals ORDER BY name ASC`);
+   return await this.repository.find();
+  }
+  async getAnimalsPage(pageInt=1, limit=5): Promise<ICreateAnimalsDTO[]> {
+    const take =  limit
+    const skip = (pageInt -1 ) * limit 
+    return await this.repository.find({order:{name: 'ASC'} ,skip,take});
   }
 
   async create({
